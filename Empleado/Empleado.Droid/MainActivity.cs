@@ -13,7 +13,7 @@ using Microsoft.Practices.Unity;
 
 namespace Empleado.Droid
 {
-	[Activity(Label = "Empleado.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Theme = "@android:style/Theme.Holo.Light", Label = "Empleado Mobile", Icon = "@android:color/transparent", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate(Bundle bundle)

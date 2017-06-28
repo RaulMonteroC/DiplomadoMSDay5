@@ -3,5 +3,7 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
                 prism:ViewModelLocator.AutowireViewModel="True" 
-                x:Class="Empleado.Views.NavContainer">
+                x:Class="Empleado.Views.NavContainer"
+                BarBackgroundColor="#00B0B8"
+                BarTextColor="White">
 </NavigationPage>

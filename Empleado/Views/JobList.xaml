@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
             prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="Empleado.Views.JobList" Title="Job List">
+            x:Class="Empleado.Views.JobList" Title="Job List"
+            BackgroundColor="White">
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Test" />
-    </StackLayout>
+<ListView ItemsSource="{Binding Jobs}" RowHeight="80" SeparatorVisibility="None">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell> 
+                <StackLayout BackgroundColor="#EFEFEF" Margin="5,10,5,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding }" />
+                    </StackLayout.GestureRecognizers>
+                        
+                    <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" Margin="5,5,5,0" />
+                    <Label Text="{Binding CompanyAndCategory}" FontSize="10" Margin="5,0,5,0"/>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="5,0,5,5">
+                        <Label Text="{Binding Location}" FontSize="10" HorizontalOptions="Start"  />
+                        <Label Text="{Binding RemoteText}" FontSize="10" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate> 
+</ListView>
     
 </ContentPage>
