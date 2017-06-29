@@ -12,13 +12,13 @@
             <ViewCell> 
                 <StackLayout BackgroundColor="#EFEFEF" Margin="5,10,5,0">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding }" />
+                        <TapGestureRecognizer Command="{Binding NavigateToDetailCommand}" />
                     </StackLayout.GestureRecognizers>
                         
-                    <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" Margin="5,5,5,0" />
+                    <Label Text="{Binding Job.Title}" FontSize="16" FontAttributes="Bold" Margin="5,5,5,0" />
                     <Label Text="{Binding CompanyAndCategory}" FontSize="10" Margin="5,0,5,0"/>
                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="5,0,5,5">
-                        <Label Text="{Binding Location}" FontSize="10" HorizontalOptions="Start"  />
+                        <Label Text="{Binding Job.Location}" FontSize="10" HorizontalOptions="Start"  />
                         <Label Text="{Binding RemoteText}" FontSize="10" HorizontalOptions="EndAndExpand" />
                     </StackLayout>
                 </StackLayout>

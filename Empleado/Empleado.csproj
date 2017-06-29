@@ -42,6 +42,10 @@
     <Compile Include="ViewModels\NavContainerViewModel.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Data\SeedData\JobSeedData.cs" />
+    <Compile Include="ViewModels\JobListItemViewModel.cs" />
+    <Compile Include="Views\JobDetail.xaml.cs">
+      <DependentUpon>JobDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\JobDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +56,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NavContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JobDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

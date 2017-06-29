@@ -11,12 +11,28 @@ namespace Empleado.ViewModels
 {
 	public class JobListViewModel : BindableBase, INavigationAware
 	{
-        public List<Job> Jobs { get; set; }
-        
-		public JobListViewModel()
+        public List<JobListItemViewModel> Jobs { get; set; }
+
+        readonly INavigationService _navigationService;
+
+		public JobListViewModel(INavigationService navigationService)
 		{
-            Jobs = JobSeedData.Seed();
-		}
+            _navigationService = navigationService;
+            
+			LoadJobs();
+        }
+
+        public void LoadJobs()
+        {
+			var jobData = JobSeedData.Seed();
+
+			Jobs = Jobs ?? new List<JobListItemViewModel>();
+
+			foreach (var job in jobData)
+			{
+                Jobs.Add(new JobListItemViewModel(job, _navigationService));
+			}
+        }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
@@ -24,6 +40,7 @@ namespace Empleado.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            
         }
     }
 }

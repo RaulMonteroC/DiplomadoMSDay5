@@ -10,8 +10,5 @@ namespace Empleado.Models
         public int VisitCount { get; set; }
         public string Category { get; set; }
         public string Company { get; set; }
-
-        public string CompanyAndCategory => $"{Company} | {Category}";
-        public string RemoteText => IsRemote ? "Remote" : "";
     }
 }

@@ -17,6 +17,7 @@ namespace Empleado
 		protected override void RegisterTypes()
 		{
             Container.RegisterTypeForNavigation<JobList>();
+            Container.RegisterTypeForNavigation<JobDetail>();
             Container.RegisterTypeForNavigation<NavContainer>();
 		}
 	}
