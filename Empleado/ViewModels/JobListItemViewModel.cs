@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Empleado.Models;
 using Empleado.Views;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -15,7 +16,7 @@ namespace Empleado.ViewModels
         public string CompanyAndCategory { get; set; }
         public string RemoteText { get; set; }
 
-        public ICommand NavigateToDetailCommand { get; set; }
+        public DelegateCommand NavigateToDetailCommand { get; set; }
 
         readonly INavigationService _navigationService;
 
@@ -27,16 +28,6 @@ namespace Empleado.ViewModels
             SetupProperties();
 
             WireCommands();
-        }
-
-        public async Task NavigateToDetail()
-        {       		
-            var navParameters = new NavigationParameters()
-            {
-                {"Job", Job}
-            };
-
-            await _navigationService.NavigateAsync($"{nameof(NavContainer)}/{nameof(JobDetail)}", navParameters);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -55,7 +46,13 @@ namespace Empleado.ViewModels
 
         private void WireCommands()
         {
-            NavigateToDetailCommand = new Command(async () => await NavigateToDetail());
+            NavigateToDetailCommand = new DelegateCommand(async () => await NavigateToDetail());
         }
+
+		private async Task NavigateToDetail()
+		{
+			await _navigationService.NavigateAsync(nameof(JobDetail), 
+                                                   new NavigationParameters{{"Job", Job}});
+		}
     }
 }

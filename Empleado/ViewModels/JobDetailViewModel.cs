@@ -8,7 +8,13 @@ namespace Empleado.ViewModels
 {
     public class JobDetailViewModel : BindableBase, INavigationAware
     {
-        public Job Job { get; set; }
+        Job _job;
+        public Job Job
+        {
+            get { return _job; }
+            set {SetProperty(ref _job, value);}
+        }
+
         public string RemoteText { get; set; }
 
         public JobDetailViewModel()
