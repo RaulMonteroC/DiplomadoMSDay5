@@ -24,25 +24,12 @@ namespace Empleado.ViewModels
         readonly INavigationService _navigationService;
         readonly AzureDataService _azureDataService;
 
-		public JobListViewModel(INavigationService navigationService, AzureDataService azureDataService)
+		public JobListViewModel()
 		{
-            _navigationService = navigationService;
-
-            _azureDataService = azureDataService;
-
         }
 
         public async Task LoadJobs()
         {
-			await _azureDataService.Initialize();
-            var jobData = await _azureDataService.GetJobs();
-
-			Jobs = Jobs ?? new ObservableCollection<JobListItemViewModel>();
-
-			foreach (var job in jobData)
-			{
-                Jobs.Add(new JobListItemViewModel(job, _navigationService));
-			}
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -51,7 +38,6 @@ namespace Empleado.ViewModels
 
 		public async void OnNavigatedTo(NavigationParameters parameters)
         {
-           	await LoadJobs();
         }
     }
 }

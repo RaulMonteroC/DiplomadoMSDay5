@@ -12,22 +12,9 @@ namespace Empleado.ViewModels
 {
     public class JobListItemViewModel: BindableBase, INavigationAware
     {
-        public Job Job { get; set; }
-        public string CompanyAndCategory { get; set; }
-        public string RemoteText { get; set; }
-
-        public DelegateCommand NavigateToDetailCommand { get; set; }
-
-        readonly INavigationService _navigationService;
-
-        public JobListItemViewModel(Job job, INavigationService navigationService)
+        public JobListItemViewModel()
         {
-            Job = job;
-            _navigationService = navigationService;
 
-            SetupProperties();
-
-            WireCommands();
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -40,19 +27,16 @@ namespace Empleado.ViewModels
 
         private void SetupProperties()
         {
-			CompanyAndCategory = $"{Job.Company} | {Job.Category}";
-			RemoteText = Job.IsRemote ? "Remote" : "";            
         }
 
         private void WireCommands()
         {
-            NavigateToDetailCommand = new DelegateCommand(async () => await NavigateToDetail());
+
         }
 
 		private async Task NavigateToDetail()
 		{
-			await _navigationService.NavigateAsync(nameof(JobDetail), 
-                                                   new NavigationParameters{{"Job", Job}});
+
 		}
     }
 }

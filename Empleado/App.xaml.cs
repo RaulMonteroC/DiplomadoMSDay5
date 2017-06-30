@@ -13,16 +13,12 @@ namespace Empleado
 		{
 			InitializeComponent();
 
-            NavigationService.NavigateAsync($"{nameof(NavContainer)}/{nameof(JobList)}");
+
 		}
 
 		protected override void RegisterTypes()
 		{
-            Container.RegisterTypeForNavigation<JobList>();
-            Container.RegisterTypeForNavigation<JobDetail>();
-            Container.RegisterTypeForNavigation<NavContainer>();
 
-            Container.RegisterType<AzureDataService, AzureDataService>();
 		}
 	}
 }

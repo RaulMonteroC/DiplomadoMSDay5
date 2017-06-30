@@ -32,34 +32,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\JobList.xaml.cs">
-      <DependentUpon>JobList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\JobListViewModel.cs" />
-    <Compile Include="Views\NavContainer.xaml.cs">
-      <DependentUpon>NavContainer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\NavContainerViewModel.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Data\SeedData\JobSeedData.cs" />
     <Compile Include="ViewModels\JobListItemViewModel.cs" />
-    <Compile Include="Views\JobDetail.xaml.cs">
-      <DependentUpon>JobDetail.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\JobDetailViewModel.cs" />
     <Compile Include="Services\AzureDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\JobList.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\NavContainer.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\JobDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

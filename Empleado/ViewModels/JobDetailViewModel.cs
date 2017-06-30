@@ -27,8 +27,7 @@ namespace Empleado.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            Job = (Job) parameters["Job"];
-            RemoteText = Job.IsRemote ? "Remote" : "";
+
 		}
     }
 }
