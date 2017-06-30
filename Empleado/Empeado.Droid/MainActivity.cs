@@ -1,17 +1,12 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using Prism;
-using Prism.Unity;
+using Empleado;
 using Microsoft.Practices.Unity;
+using Prism.Unity;
+using Android.Content.PM;
 
-namespace Empleado.Droid
+namespace Empeado.Droid
 {
 	[Activity(Theme = "@android:style/Theme.Holo.Light", Label = "Empleado Mobile", Icon = "@android:color/transparent", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
@@ -25,7 +20,7 @@ namespace Empleado.Droid
 			LoadApplication(new App(new AndroidInitializer()));
 
 
-            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 		}
 	}
 
@@ -37,3 +32,4 @@ namespace Empleado.Droid
 		}
 	}
 }
+

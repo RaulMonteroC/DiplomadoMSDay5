@@ -13,7 +13,7 @@ namespace Empleado.Services
     {
 		public MobileServiceClient MobileService { get; set; }
 		
-        IMobileServiceSyncTable<Job> JobTable;
+        IMobileServiceSyncTable<Job> JobsTable;
 
         public async Task Initialize()
         {
@@ -28,20 +28,20 @@ namespace Empleado.Services
 			await MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
 			//Get our sync table that will call out to azure
-            JobTable = MobileService.GetSyncTable<Job>();
+			JobsTable = MobileService.GetSyncTable<Job>();
         }
         
         public async Task<IEnumerable<Job>> GetJobs()
         {
             await SyncJobs();
 
-            return await JobTable.ToEnumerableAsync();
+            return await JobsTable.ToEnumerableAsync();
         }
 
         public async Task SyncJobs()
         {
 			//pull down all latest changes and then push current coffees up
-            await JobTable.PullAsync("allJobs", JobTable.CreateQuery());
+            await JobsTable.PullAsync("allJobs", JobsTable.CreateQuery());
 			await MobileService.SyncContext.PushAsync();            
         }
     }
