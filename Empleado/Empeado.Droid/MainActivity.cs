@@ -8,7 +8,7 @@ using Android.Content.PM;
 
 namespace Empeado.Droid
 {
-	[Activity(Theme = "@android:style/Theme.Holo.Light", Label = "Empleado Mobile", Icon = "@android:color/transparent", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Theme = "@android:style/Theme.Holo.Light", Label = "Emplea.do", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate(Bundle bundle)
