@@ -28,6 +28,9 @@ namespace Empleado.iOS
 
 			LoadApplication(new App(new iOSInitializer()));
 
+			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			//SQLitePCL.CurrentPlatform.Init();
+
 			return base.FinishedLaunching(app, options);
 		}
 	}

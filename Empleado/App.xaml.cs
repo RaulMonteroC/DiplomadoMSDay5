@@ -1,5 +1,7 @@
 ﻿﻿using Prism.Unity;
 using Empleado.Views;
+using Empleado.Services;
+using Microsoft.Practices.Unity;
 
 namespace Empleado
 {
@@ -19,6 +21,8 @@ namespace Empleado
             Container.RegisterTypeForNavigation<JobList>();
             Container.RegisterTypeForNavigation<JobDetail>();
             Container.RegisterTypeForNavigation<NavContainer>();
+
+            Container.RegisterType<AzureDataService, AzureDataService>();
 		}
 	}
 }

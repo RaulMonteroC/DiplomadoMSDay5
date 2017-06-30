@@ -6,6 +6,8 @@ using System.Linq;
 using Prism.Navigation;
 using Empleado.Models;
 using Empleado.Data.SeedData;
+using Empleado.Services;
+using System.Threading.Tasks;
 
 namespace Empleado.ViewModels
 {
@@ -14,17 +16,20 @@ namespace Empleado.ViewModels
         public List<JobListItemViewModel> Jobs { get; set; }
 
         readonly INavigationService _navigationService;
+        readonly AzureDataService _azureDataService;
 
-		public JobListViewModel(INavigationService navigationService)
+		public JobListViewModel(INavigationService navigationService, AzureDataService azureDataService)
 		{
             _navigationService = navigationService;
-            
-			LoadJobs();
+
+            _azureDataService = azureDataService;
+
+            Task.Run(async () => await LoadJobs());
         }
 
-        public void LoadJobs()
+        public async Task LoadJobs()
         {
-			var jobData = JobSeedData.Seed();
+            var jobData = await _azureDataService.GetJobs();
 
 			Jobs = Jobs ?? new List<JobListItemViewModel>();
 
