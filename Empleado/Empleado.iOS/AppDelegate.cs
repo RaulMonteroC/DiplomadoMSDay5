@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
 using UIKit;
@@ -26,10 +22,9 @@ namespace Empleado.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
-			LoadApplication(new App(new iOSInitializer()));
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 
-			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-			//SQLitePCL.CurrentPlatform.Init();
+			LoadApplication(new App(new iOSInitializer()));
 
 			return base.FinishedLaunching(app, options);
 		}
