@@ -5,12 +5,12 @@ using Android.App;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("Empleado.Droid")]
+[assembly: AssemblyTitle("Empeado.Droid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("(c) Raul Montero")]
+[assembly: AssemblyCopyright("(c) Enmanuel Toribio")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -8,12 +8,18 @@ using Empleado.Models;
 using Empleado.Data.SeedData;
 using Empleado.Services;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Empleado.ViewModels
 {
 	public class JobListViewModel : BindableBase, INavigationAware
 	{
-        public List<JobListItemViewModel> Jobs { get; set; }
+		private ObservableCollection<JobListItemViewModel> _jobs;
+        public ObservableCollection<JobListItemViewModel> Jobs
+		{
+			get { return _jobs; }
+			set { SetProperty(ref _jobs, value); }
+		}
 
         readonly INavigationService _navigationService;
         readonly AzureDataService _azureDataService;
@@ -24,14 +30,14 @@ namespace Empleado.ViewModels
 
             _azureDataService = azureDataService;
 
-            Task.Run(async () => await LoadJobs());
         }
 
         public async Task LoadJobs()
         {
+			await _azureDataService.Initialize();
             var jobData = await _azureDataService.GetJobs();
 
-			Jobs = Jobs ?? new List<JobListItemViewModel>();
+			Jobs = Jobs ?? new ObservableCollection<JobListItemViewModel>();
 
 			foreach (var job in jobData)
 			{
@@ -43,9 +49,9 @@ namespace Empleado.ViewModels
         {
         }
 
-        public void OnNavigatedTo(NavigationParameters parameters)
+		public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            
+           	await LoadJobs();
         }
     }
 }
